@@ -8,6 +8,14 @@ interface CpButtonProps {
   disabled?: boolean;
 }
 
+/**
+ * @author 김영준
+ * @date 2025-10-16
+ * @description 재사용 가능한 버튼 컴포넌트
+ * - primary/secondary 스타일 변형 지원
+ * - 비활성화 상태 지원
+ * - 터치 피드백 제공
+ */
 export const CpButton: React.FC<CpButtonProps> = ({
   title,
   onPress,
@@ -39,12 +47,12 @@ const styles = StyleSheet.create({
     minWidth: 100,
   },
   primary: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#0088FE',
   },
   secondary: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: '#007AFF',
+    borderColor: '#0088FE',
   },
   disabled: {
     opacity: 0.5,
@@ -57,6 +65,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   secondaryText: {
-    color: '#007AFF',
+    color: '#0088FE',
   },
 });
