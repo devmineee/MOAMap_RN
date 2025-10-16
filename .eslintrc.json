@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "expo",
+    "@expo/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react-native/no-inline-styles": "warn"
+  }
+}
