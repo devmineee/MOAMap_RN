@@ -45,6 +45,7 @@ export const icons = {
 
   // 상태 아이콘
   premium: require('./icons/premium.png'),
+  check_circle: require('./icons/check_circle.png'),
   // close: require('./icons/close.png'),
   // info: require('./icons/info.png'),
   // warning: require('./icons/warning.png'),

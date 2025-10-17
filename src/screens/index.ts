@@ -2,4 +2,5 @@
 export { ScrTest } from './test/scrTest';
 export { ScrHome } from './home/scrHome';
 export { ScrLogin } from './login/scrLogin';
+export { ScrSignUp } from './login/scrSignUp';
 export { ScrFindPassword } from './login/scrFindPassword';

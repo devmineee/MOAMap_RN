@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScreenProps } from '@/types';
-// import { CpSignInForm } from '@/components/ui/cpSignInForm';
-import { CpButton, CpInputField, CpSocialButton } from '@/components';
+import { CpButton, CpHeader, CpInputField, CpIconButton } from '@/components';
+import Images from '@/assets/images';
 
 export const ScrFindPassword: React.FC<ScreenProps> = ({ navigation }) => {
 
+  const [tab, setTab] = useState(0);
+
+  const handleClose = () => {
+    navigation.goBack();
+  };
+
+
   const findPassword = () => {
+
     return (
-      <View>
+      <View style={styles.content}>
         <CpInputField
           label="이메일"
           placeholder='example@modoomap.com'
@@ -18,7 +26,7 @@ export const ScrFindPassword: React.FC<ScreenProps> = ({ navigation }) => {
 
         <CpButton
           title="비밀번호 재설정"
-          onPress={() => { }}
+          onPress={() => setTab(1)}
           disabled={false}
         />
       </View>
@@ -27,23 +35,28 @@ export const ScrFindPassword: React.FC<ScreenProps> = ({ navigation }) => {
 
   const completeFindPassword = () => {
     return (
-      <View>
-        <Text>비밀번호 재설정 메일 발송 완료</Text>
-        <Text>메일을 확인해주세요</Text>
+      <View style={styles.content}>
+        <Image source={Images.icons.check_circle} style={styles.icon} />
+        <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>비밀번호 재설정 메일 발송 완료</Text>
+        <Text style={{ textAlign: 'center' }}>메일을 확인해주세요</Text>
+        {/* <CpButton
+          title="비밀번호 재설정 화면으로 가기"
+          onPress={() => setTab(0)}
+          disabled={false}
+        /> */}
       </View>
     )
   }
 
-
-
-
-
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        {completeFindPassword()}
-      </View>
-
+      {/* 헤더 */}
+      <CpHeader
+        showLogo={false}
+        title='비밀번호 찾기'
+        rightElement={<CpIconButton icon={Images.icons.close} onPress={handleClose} />}
+      />
+      {tab === 0 ? findPassword() : completeFindPassword()}
     </SafeAreaView>
   );
 };
@@ -55,28 +68,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
   },
   content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    gap: 10
+    display: 'flex',
+    flexDirection: 'column',
+    padding: 24,
+    gap: 10,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 40,
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    gap: 15,
-    width: '100%',
-    maxWidth: 300,
+  icon: {
+    width: 64,
+    height: 64,
+    marginBottom: 20,
+    alignSelf: 'center',
   },
 });

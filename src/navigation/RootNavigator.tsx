@@ -4,7 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from './types';
-import { ScrHome, ScrLogin, ScrTest } from '@/screens';
+import { ScrTest, ScrHome, ScrLogin, ScrFindPassword, ScrSignUp } from '@/screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -54,7 +54,8 @@ export const RootNavigator: React.FC = () => {
           }}
         />
 
-        {/* <Stack.Screen
+        {/* 회원가입 관련 스크린들 */}
+        <Stack.Screen
           name="SignUp"
           component={ScrSignUp}
           options={{
@@ -62,13 +63,14 @@ export const RootNavigator: React.FC = () => {
           }}
         />
 
+        {/* 비밀번호 찾기 관련 스크린들 */}
         <Stack.Screen
           name="FindPassword"
           component={ScrFindPassword}
           options={{
             title: '비밀번호 찾기',
           }}
-        /> */}
+        />
 
         {/* 향후 추가될 로그인 후 스크린들 */}
         {/*
