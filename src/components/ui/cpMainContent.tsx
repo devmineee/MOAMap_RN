@@ -33,8 +33,14 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       title: '서울 유명 빵집 지도',
       creator: '빵순이',
       date: '2024-10-15',
-      keywords: ['빵집'],
-      imageUrl: 'https://avatars.githubusercontent.com/u/156628546?v=4'
+      keywords: ['빵집', '카페', '맛집'],
+      isParticipated: true, // 참여한 지도
+      imageUrls: [
+        'https://modoomap.com/modoomap_image/main/ka2ab197112b7b3c540ff7642954a2c25/1/2/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-08-22%20094252_20250822094303.png',
+        'https://modoomap.com/modoomap_image/main/ka2ab197112b7b3c540ff7642954a2c25/1/2/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202025-08-22%20094210_20250822094303.png',
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250418_289%2F1744959554416oLMdv_JPEG%2F%25C7%25C3%25B6%25F3%25BF%25F6_%25B5%25FE%25B1%25E2%25C4%25C9%25C0%25CC%25C5%25A9_%25BB%25E7%25C1%25F8.jpg',
+        'https://avatars.githubusercontent.com/u/156628546?v=4',
+      ],
     },
     {
       title: '부산 동래 빵집 투어',
@@ -42,14 +48,22 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       date: '2024-10-10',
       keywords: ['빵집'],
       isRecent: true,
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200130_59%2F1580369608061baqAf_JPEG%2FeEseEYtcXO7K5vFJzcFCrzIx.jpg'
+      imageUrls: [
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200130_59%2F1580369608061baqAf_JPEG%2FeEseEYtcXO7K5vFJzcFCrzIx.jpg',
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230808_44%2F1691506634387gvHXk_JPEG%2FE5EBF520-D68A-41CD-9A76-450619FFAA7B.jpeg',
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240427_8%2F1714193050191P7e1m_JPEG%2FB5217813-E762-4CA4-9942-84273334F860.jpeg'
+      ]
     },
     {
       title: '대구 빵집 베스트',
       creator: '대구맛집탐험가',
       date: '2024-10-08',
       keywords: ['빵집'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250124_145%2F1737710531781fu5Ww_JPEG%2FKakaoTalk_20250124_182043156.jpg'
+      imageUrls: [
+
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230808_44%2F1691506634387gvHXk_JPEG%2FE5EBF520-D68A-41CD-9A76-450619FFAA7B.jpeg',
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250124_145%2F1737710531781fu5Ww_JPEG%2FKakaoTalk_20250124_182043156.jpg',
+      ]
     },
 
     // 카페 관련
@@ -58,7 +72,8 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       creator: '전영한 팝코어',
       date: '2024-10-12',
       keywords: ['카페'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250724_193%2F1753342766642unIMG_JPEG%2FAAA_6258.jpg',
+      isParticipated: true, // 참여한 지도
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20250724_193%2F1753342766642unIMG_JPEG%2FAAA_6258.jpg'],
       isRecent: true,
     },
     {
@@ -66,7 +81,7 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       creator: '제주도민',
       date: '2024-10-05',
       keywords: ['카페'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240905_260%2F17255340471458stuB_JPEG%2FIMG_6726.jpeg'
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240905_260%2F17255340471458stuB_JPEG%2FIMG_6726.jpeg']
     },
 
     // 맛집 관련
@@ -75,22 +90,23 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       creator: '불타는 돌고래',
       date: '2024-10-14',
       keywords: ['맛집'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDExMDVfMjU2%2FMDAxNzMwNzQ2MjkyODgw.siNptPsGtI7qg46Fwn7znrcj1cAv1YKCtJTEhggt2hsg.Bc7QsM_i-SEN35Ub_AcdyH84HxpldH8YOvAF52RjHBQg.JPEG%2F6E40E2FA-1061-4F1D-A9A8-DB1F488494A6.jpeg%3Ftype%3Dw1500_60_sharpen'
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDExMDVfMjU2%2FMDAxNzMwNzQ2MjkyODgw.siNptPsGtI7qg46Fwn7znrcj1cAv1YKCtJTEhggt2hsg.Bc7QsM_i-SEN35Ub_AcdyH84HxpldH8YOvAF52RjHBQg.JPEG%2F6E40E2FA-1061-4F1D-A9A8-DB1F488494A6.jpeg%3Ftype%3Dw1500_60_sharpen']
     },
     {
       title: '국밥 천국',
       creator: '국밥 마스터',
       date: '2024-10-11',
       keywords: ['맛집'],
+      isParticipated: true, // 참여한 지도
       isRecent: true,
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240719_25%2F1721368591368iq6RX_JPEG%2FKakaoTalk_20240719_145412619_01.jpg',
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240719_25%2F1721368591368iq6RX_JPEG%2FKakaoTalk_20240719_145412619_01.jpg'],
     },
     {
       title: '강남 고급 레스토랑',
       creator: '미식가',
       date: '2024-10-09',
       keywords: ['맛집'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240617_125%2F1718609824567jT0aK_JPEG%2FTAT00261.jpg'
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240617_125%2F1718609824567jT0aK_JPEG%2FTAT00261.jpg']
     },
 
     // 전국 관련
@@ -99,7 +115,10 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       creator: '드라이브매니아',
       date: '2024-10-13',
       keywords: ['전국'],
-      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzExMThfMjg5%2FMDAxNTEwOTk1NTI0NjAw._RCmRBTkCHdQDiO0vwoq5SP-nRlUHo6yhtHWBxNRum8g.hs6dmcu6Ve7SaHBqnjwAfZp12eEfXya0sXdTSpiPs-Ag.JPEG.lwh7011%2F027.jpg%23900x660'
+      imageUrls: [
+        'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzExMThfMjg5%2FMDAxNTEwOTk1NTI0NjAw._RCmRBTkCHdQDiO0vwoq5SP-nRlUHo6yhtHWBxNRum8g.hs6dmcu6Ve7SaHBqnjwAfZp12eEfXya0sXdTSpiPs-Ag.JPEG.lwh7011%2F027.jpg%23900x660',
+        'https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNTA5MDhfMTc1%2FMDAxNzU3MjYxMDkzNTE5.NVZONIvdJ3upY6cuFnq3JV2iK4pXKbWZ9jKlBdNcvvEg.PC8QC1YDttFyb0naaRir2sPhRMrP04gVA2RiQUmPgpkg.JPEG%2FD6A42244-0492-4144-9670-B663BA946BC6.jpeg%3Ftype%3Dw1500_60_sharpen'
+      ]
     },
     {
       title: '전국 온천 지도',
@@ -107,7 +126,7 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       date: '2024-10-07',
       keywords: ['전국'],
       isRecent: true,
-      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA3MjlfODkg%2FMDAxNzUzNzk0Njc3MjQy.QWf_35w8MxpbIwANyJTW2IAu8_qEPjzqNKCFUXzyHxUg.MLXL-UlnUGVLgekBmLtO855a24g4ZxSwls7k7_-GfWkg.JPEG%2F%25C0%25CC%25C3%25B5_%25C5%25D7%25B8%25A3%25B8%25DE%25C5%25D9_%25BF%25F6%25C5%25CD%25C6%25C4%25C5%25A9-5.jpg'
+      imageUrls: ['https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA3MjlfODkg%2FMDAxNzUzNzk0Njc3MjQy.QWf_35w8MxpbIwANyJTW2IAu8_qEPjzqNKCFUXzyHxUg.MLXL-UlnUGVLgekBmLtO855a24g4ZxSwls7k7_-GfWkg.JPEG%2F%25C0%25CC%25C3%25B5_%25C5%25D7%25B8%25A3%25B8%25DE%25C5%25D9_%25BF%25F6%25C5%25CD%25C6%25C4%25C5%25A9-5.jpg']
     },
 
     // 익산 관련
@@ -116,14 +135,14 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       creator: '익산토박이',
       date: '2024-10-06',
       keywords: ['익산'],
-      imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240120_16%2F1705735353498Xs2jT_JPEG%2FIMG_1150.jpeg'
+      imageUrls: ['https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240120_16%2F1705735353498Xs2jT_JPEG%2FIMG_1150.jpeg']
     },
     {
       title: '익산 역사 탐방',
       creator: '역사덕후',
       date: '2024-10-03',
       keywords: ['익산'],
-      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEwMDlfMTQx%2FMDAxNzU5OTc3NTQyMjI1.CErPImydcaYMkELNyPwTcMafqxlWIGxZ7aoZwmdqmb4g.-y7pKbsbiyn_h2ZGsJXL7QV099QsaN0aa1YOW_GkTjAg.JPEG%2F20251007_151230.jpg'
+      imageUrls: ['https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEwMDlfMTQx%2FMDAxNzU5OTc3NTQyMjI1.CErPImydcaYMkELNyPwTcMafqxlWIGxZ7aoZwmdqmb4g.-y7pKbsbiyn_h2ZGsJXL7QV099QsaN0aa1YOW_GkTjAg.JPEG%2F20251007_151230.jpg']
     },
   ];
 
@@ -132,6 +151,9 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
     const keyword = selectedKeyword.replace('# ', ''); // '# ' 제거
     return map.keywords.includes(keyword);
   });
+
+  // 251017 | 김영준 | 참여한 지도만 필터링
+  const participatedMapData = allMapData.filter(map => map.isParticipated === true);
 
   // 251017 | 김영준 | 키워드 선택 핸들러
   const handleKeywordSelectionChange = (selectedKeyword: string | null) => {
@@ -178,16 +200,28 @@ export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
       {/* 최근 참여한 지도 */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>최근 참여한 지도</Text>
-        <View style={styles.emptyState}>
-          <Text style={styles.emptyIcon}>❓</Text>
-          <Text style={styles.emptyText}>아직 참여한 지도가 없어요.</Text>
-          <View style={styles.emptyButton}>
-            <CpButton
-              title="🏃‍♂️ 지도 참여하러 가기"
-              onPress={onJoinMapPress || (() => { })}
-            />
+        {participatedMapData.length > 0 ? (
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.mapScroll}
+          >
+            {participatedMapData.map((map, index) => (
+              <CpMapCard key={index} {...map} />
+            ))}
+          </ScrollView>
+        ) : (
+          <View style={styles.emptyState}>
+            <Text style={styles.emptyIcon}>❓</Text>
+            <Text style={styles.emptyText}>아직 참여한 지도가 없어요.</Text>
+            <View style={styles.emptyButton}>
+              <CpButton
+                title="🏃‍♂️ 지도 참여하러 가기"
+                onPress={onJoinMapPress || (() => { })}
+              />
+            </View>
           </View>
-        </View>
+        )}
       </View>
     </ScrollView>
   );

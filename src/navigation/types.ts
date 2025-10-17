@@ -7,10 +7,11 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
  * - 모든 스크린의 파라미터 타입 리스트 정의
  */
 export type RootStackParamList = {
+  Test: undefined;
   Home: undefined;
   Login: undefined;
-  // SignUp: undefined;
-  // FindPassword: undefined;
+  SignUp: undefined;
+  FindPassword: undefined;
 
   // TODO: 향후 추가될 스크린들
   // PublicMap: undefined;

@@ -8,6 +8,7 @@ export { CpBanner } from './ui/cpBanner';
 export { CpProBanner } from './ui/cpProBanner';
 export { CpRollingBanner } from './ui/cpRollingBanner';
 export { CpMapCard } from './ui/cpMapCard';
+export { CpImageGrid } from './ui/cpImageGrid';
 export { CpKeywordButton } from './ui/cpKeywordButton';
 export { CpKeywordSelector } from './ui/cpKeywordSelector';
 export { CpInputField } from './ui/cpInputField';

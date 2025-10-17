@@ -4,7 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from './types';
-import { ScrHome, ScrLogin } from '@/screens';
+import { ScrHome, ScrLogin, ScrTest } from '@/screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,12 +21,21 @@ export const RootNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Test"
         screenOptions={{
           headerShown: false, // 모든 스크린에서 기본 헤더 숨김
           animation: 'fade',
         }}
       >
+        {/* 테스트 스크린 - 테스트 페이지 */}
+        <Stack.Screen
+          name="Test"
+          component={ScrTest}
+          options={{
+            title: '테스트',
+          }}
+        />
+
         {/* 홈 스크린 - 랜딩 페이지 */}
         <Stack.Screen
           name="Home"

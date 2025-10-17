@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { CpImageGrid } from './cpImageGrid';
 
 export interface CpMapCardProps {
   title: string;
   creator: string;
   date: string;
-  imageUrl?: string;
+  imageUrls?: string[];
   isRecent?: boolean;
   onPress?: () => void;
 }
@@ -13,8 +14,9 @@ export interface CpMapCardProps {
 /**
  * @author 김영준
  * @date 2025-10-17
+ * @update 2025-10-17 | CpImageGrid 컴포넌트로 이미지 그리드 표시
  * @description 개별 지도 정보를 표시하는 카드 컴포넌트
- * - 지도 이미지 또는 플레이스홀더 표시
+ * - 이미지 개수에 따라 다른 레이아웃으로 표시 (CpImageGrid 사용)
  * - 우측 하단: UP! 뱃지 (최근 수정된 지도)
  * - 하단 오버레이: 제목, 부제목, 날짜 정보
  */
@@ -22,41 +24,39 @@ export const CpMapCard: React.FC<CpMapCardProps> = ({
   title,
   creator,
   date,
-  imageUrl,
+  imageUrls,
   isRecent = false,
   onPress
-}) => (
-  <TouchableOpacity style={styles.mapCard} onPress={onPress}>
-    <View style={styles.mapImageContainer}>
-      {/* 배경 이미지 또는 플레이스홀더 */}
-      {imageUrl ? (
-        <Image source={{ uri: imageUrl }} style={styles.mapImage} />
-      ) : (
-        <View style={styles.mapImagePlaceholder}>
-          <View style={styles.placeholderIcon} />
+}) => {
+  // imageUrls을 배열로 정규화
+  const imageArray = Array.isArray(imageUrls) ? imageUrls : imageUrls ? [imageUrls] : [];
+
+  return (
+    <TouchableOpacity style={styles.mapCard} onPress={onPress}>
+      <View style={styles.mapImageContainer}>
+        {/* 이미지 그리드 */}
+        <CpImageGrid imageUrls={imageArray} />
+
+        {/* 하단 오버레이 - UP! 뱃지 */}
+        <View style={styles.bottomBadgeOverlay}>
+          {/* 우측 하단: UP! 뱃지 */}
+          {isRecent && (
+            <View style={styles.upBadge}>
+              <Text style={styles.upBadgeText}>UP!</Text>
+            </View>
+          )}
         </View>
-      )}
 
-      {/* 하단 오버레이 - UP! 뱃지 */}
-      <View style={styles.bottomBadgeOverlay}>
-
-        {/* 우측 하단: UP! 뱃지 */}
-        {isRecent && (
-          <View style={styles.upBadge}>
-            <Text style={styles.upBadgeText}>UP!</Text>
-          </View>
-        )}
+        {/* 하단 오버레이 - 지도 정보 */}
+        <View style={styles.bottomOverlay}>
+          <Text style={styles.mapTitle} numberOfLines={1}>{title}</Text>
+          <Text style={styles.mapCreator} numberOfLines={1}>{creator}</Text>
+          <Text style={styles.mapDate}>{date}</Text>
+        </View>
       </View>
-
-      {/* 하단 오버레이 - 지도 정보 */}
-      <View style={styles.bottomOverlay}>
-        <Text style={styles.mapTitle} numberOfLines={1}>{title}</Text>
-        <Text style={styles.mapCreator} numberOfLines={1}>{creator}</Text>
-        <Text style={styles.mapDate}>{date}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-);
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   mapCard: {
