@@ -63,12 +63,6 @@ export const CpMainContent: React.FC = () => {
       keywords: ['카페'],
       imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240905_260%2F17255340471458stuB_JPEG%2FIMG_6726.jpeg'
     },
-    {
-      title: '홍대 감성 카페 모음',
-      creator: '홍대러버',
-      date: '2024-10-01',
-      keywords: ['카페'],
-    },
 
     // 맛집 관련
     {
@@ -116,7 +110,7 @@ export const CpMainContent: React.FC = () => {
       title: '익산 맛집 완전정복',
       creator: '익산토박이',
       date: '2024-10-06',
-      keyword: ['익산'],
+      keywords: ['익산'],
       imageUrl: 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240120_16%2F1705735353498Xs2jT_JPEG%2FIMG_1150.jpeg'
     },
     {
@@ -131,7 +125,7 @@ export const CpMainContent: React.FC = () => {
   // 251017 | 김영준 | 키워드에 따른 데이터 필터링
   const filteredMapData = allMapData.filter(map => {
     const keyword = selectedKeyword.replace('# ', ''); // '# ' 제거
-    return sampleKeywords.includes(keyword);
+    return map.keywords.includes(keyword);
   });
 
   // 251017 | 김영준 | 키워드 선택 핸들러
