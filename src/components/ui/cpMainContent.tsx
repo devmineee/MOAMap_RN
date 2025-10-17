@@ -4,17 +4,22 @@ import { CpMapCard } from './cpMapCard';
 import { CpKeywordSelector } from './cpKeywordSelector';
 import { CpButton } from './cpButton';
 
+interface Props {
+  onJoinMapPress?: () => void;
+}
+
 /**
  * @author 김영준
  * @date 2025-10-16
- * @update 2025-10-17 | mapCard, keywordSelector 컴포넌트로 분리
+ * @update 2025-10-17 | mapCard, keywordSelector 컴포넌트로 분리, 네비게이션 연동
  * @description 홈 화면의 메인 콘텐츠 영역 컴포넌트
  * - 키워드 검색 섹션 (CpKeywordSelector로 분리)
  * - 지도 카드 가로 스크롤 (Carousel) 섹션
  * - 최근 참여한 지도 섹션 (빈 상태)
  * - 각 섹션간 적절한 간격 유지
+ * @param onJoinMapPress - 지도 참여하러 가기 버튼 클릭 시 콜백
  */
-export const CpMainContent: React.FC = () => {
+export const CpMainContent: React.FC<Props> = ({ onJoinMapPress }) => {
   // 251017 | 김영준 | 선택된 키워드 상태 관리
   const [selectedKeyword, setSelectedKeyword] = useState<string>('# 빵집');
 
@@ -177,7 +182,10 @@ export const CpMainContent: React.FC = () => {
           <Text style={styles.emptyIcon}>❓</Text>
           <Text style={styles.emptyText}>아직 참여한 지도가 없어요.</Text>
           <View style={styles.emptyButton}>
-            <CpButton title="🏃‍♂️ 지도 참여하러 가기" onPress={() => { }} />
+            <CpButton
+              title="🏃‍♂️ 지도 참여하러 가기"
+              onPress={onJoinMapPress || (() => { })}
+            />
           </View>
         </View>
       </View>

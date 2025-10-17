@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScreenProps } from '@/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '@/navigation/types';
 import { Images } from '@/assets/images';
 import {
   CpHeader,
@@ -12,16 +13,17 @@ import {
   CpIconButton
 } from '@/components';
 
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
 /**
  * @author 김영준
  * @date 2025-10-16
+ * @update 2025-10-17 | React Navigation 연동, 로그인 화면 네비게이션 추가
  * @description 앱의 메인 홈 스크린 컴포넌트
- * - 헤더, 롤링 배너, PRO 배너, 메인 콘텐츠, 네비게이션 바로 구성
- * - 각 컴포넌트간 10px 간격으로 배치
  * - SafeAreaView로 노치 영역 대응
  * - 세로 스크롤 지원
  */
-export const ScrHome: React.FC<ScreenProps> = ({ navigation }) => {
+export const ScrHome: React.FC<Props> = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState('home');
 
   // 251016 | 김영준 | 롤링 배너 목록 (샘플 데이터)
@@ -33,10 +35,21 @@ export const ScrHome: React.FC<ScreenProps> = ({ navigation }) => {
     '전국 드라이브 코스 지도'
   ];
 
-  // 251016 | 김영준 | 하단 탭 네비게이션 핸들러
+  // 251017 | 김영준 | 로그인 화면 네비게이션 헬퍼
+  const navigateToLogin = () => {
+    navigation.navigate('Login');
+  };
+
+  // 251017 | 김영준 | 하단 탭 네비게이션 핸들러
   const handleTabPress = (tabId: string) => {
     setActiveTab(tabId);
     console.log('Tab pressed:', tabId);
+
+    // 251017 | 김영준 | 즐겨찾기 또는 마이페이지 탭 클릭 시 로그인 화면으로 이동
+    // TODO: 로그인 완료 상태일 때 조건 분기 처리 필요
+    if (tabId === 'bookmarks' || tabId === 'profile') {
+      navigateToLogin();
+    }
   };
 
   // 251016 | 김영준 | 롤링 배너 터치 핸들러
@@ -44,9 +57,11 @@ export const ScrHome: React.FC<ScreenProps> = ({ navigation }) => {
     console.log('Rolling banner pressed:', title, index);
   };
 
-  // 251016 | 김영준 | PRO 배너 터치 핸들러
+  // 251017 | 김영준 | PRO 배너 터치 핸들러 - 로그인 화면으로 이동
+  // TODO: 로그인 완료 상태일 때 조건 분기 처리 필요
   const handleProBannerPress = () => {
-    console.log('Pro banner pressed');
+    console.log('Pro banner pressed - navigating to login');
+    navigateToLogin();
   };
 
   return (
@@ -74,7 +89,7 @@ export const ScrHome: React.FC<ScreenProps> = ({ navigation }) => {
           <CpProBanner onPress={handleProBannerPress} />
 
           {/* 메인 콘텐츠 */}
-          <CpMainContent />
+          <CpMainContent onJoinMapPress={navigateToLogin} />
         </View>
       </ScrollView>
 
